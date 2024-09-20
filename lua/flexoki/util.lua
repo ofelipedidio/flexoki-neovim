@@ -36,20 +36,7 @@ end
 ---@param bg string background color
 ---@param alpha number number between 0 (background) and 1 (foreground)
 util.blend = function(fg, bg, alpha)
-	local fg_rgb = rgb(parse_color(fg))
-	local bg_rgb = rgb(parse_color(bg))
-
-	local function blend_channel(i)
-		local ret = (alpha * fg_rgb[i] + ((1 - alpha) * bg_rgb[i]))
-		return math.floor(math.min(math.max(0, ret), 255) + 0.5)
-	end
-
-	return string.format(
-		'#%02X%02X%02X',
-		blend_channel(1),
-		blend_channel(2),
-		blend_channel(3)
-	)
+	return fg
 end
 
 ---@param group string
